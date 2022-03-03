@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\EventController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +15,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('fullcalendar.master');
 });
+
+Route::get('/load-events', [EventController::class, 'loadEvents'])->name('routeLoadEvents');
+
+Route::put('/event-update', [EventController::class, 'update'])->name('routeEventUpdate');
