@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function() {
       },
 
       eventClick: function(element) {
-        alert('event Click');
+         $('#modalCalendar').modal('show');
       },
 
       eventResize: function(element) {

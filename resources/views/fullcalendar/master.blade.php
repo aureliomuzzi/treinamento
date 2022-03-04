@@ -7,12 +7,17 @@
 <link href='{{asset('assets/fullcalendar/packages/timegrid/main.css')}}' rel='stylesheet' />
 <link href='{{asset('assets/fullcalendar/packages/list/main.css')}}' rel='stylesheet' />
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+
 <link href='{{asset('assets/fullcalendar/css/style.css')}}' rel='stylesheet' />
 
 <meta name="csrf-token" content="{{ csrf_token() }}">
 
 </head>
 <body>
+
+    @include('fullcalendar.modal-calendar')
+
   <div id='wrap'>
 
     <div id='external-events'>
@@ -51,6 +56,10 @@
 <script src='{{asset('assets/fullcalendar/packages/core/locales-all.js')}}'></script>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 
