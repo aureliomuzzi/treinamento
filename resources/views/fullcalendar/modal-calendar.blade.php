@@ -6,18 +6,19 @@
           <h5 class="modal-title" id="titleModal">Modal title</h5>
         </div>
         <div class="modal-body">
-            <form>
+            <form id="formEvent">
                 <div class="form-group">
                     <label for="title">Title</label>
                     <input type="text" name="title" class="form-control" id="title">
+                    <input type="hidden" name="id" id="id">
                 </div>
                 <div class="form-group">
                     <label for="start">Data/Hora Inicial</label>
-                    <input type="text" name="start" class="form-control" id="start">
+                    <input type="text" name="start" class="form-control date-time" id="start">
                 </div>
                 <div class="form-group">
                     <label for="end">Data/Hora Final</label>
-                    <input type="text" name="end" class="form-control" id="end">
+                    <input type="text" name="end" class="form-control date-time" id="end">
                 </div>
                 <div class="form-group">
                     <label for="color">Cor do Evento</label>
@@ -32,7 +33,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-          <button type="button" class="btn btn-danger deletevent">Excluir</button>
+          <button type="button" class="btn btn-danger deleteEvent">Excluir</button>
           <button type="button" class="btn btn-primary saveEvent">Salvar</button>
         </div>
       </div>

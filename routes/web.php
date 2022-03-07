@@ -21,3 +21,5 @@ Route::get('/', function () {
 Route::get('/load-events', [EventController::class, 'loadEvents'])->name('routeLoadEvents');
 
 Route::put('/event-update', [EventController::class, 'update'])->name('routeEventUpdate');
+
+Route::post('/event-store', [EventController::class, 'store'])->name('routeEventStore');
