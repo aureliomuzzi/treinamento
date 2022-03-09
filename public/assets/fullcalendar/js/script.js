@@ -7,6 +7,20 @@ $(function () {
 
     $('.date-time').mask('00/00/0000 00:00:00');
 
+    $('.deleteEvent').click(function () {
+        let id = $("#modalCalendar input[name='id']").val();
+
+        let Event = {
+            id: id,
+            _method: 'DELETE'
+        };
+
+        let route = routeEvents('routeEventDelete')
+
+        sendEvent(route, Event);
+
+    });
+
     $('.saveEvent').click(function () {
         let id = $("#modalCalendar input[name='id']").val();
         let title = $("#modalCalendar input[name='title']").val();
@@ -44,14 +58,34 @@ function sendEvent(route, data_) {
         method: 'POST',
         dataType: 'json',
         success: function (json) {
-            if (json) {
-                location.reload();
+            if (json.success == true) {
+                $("#mensagem").html('<div class="alert alert-success" role="alert">'+json.message+'</div>');
             }
+            //location.reload();
         },
         error: function (json) {
-            console.log(json);
-        },
+            let responseJSON = json.responseJSON.errors;
+            $("#mensagem").html(loadErrors(responseJSON));
+        }
     });
+}
+
+function loadErrors(response)
+{
+    let boxAlert = `<div class="alert alert-danger"`;
+
+    for (let fields in response) {
+        boxAlert += `<span>${response[fields]}</span><br/>`;
+    }
+
+    boxAlert += `</div>`;
+
+    return boxAlert.replace(/\,/g, "<br/>");
+}
+
+function clearMessages(element)
+{
+    $(element).text('');
 }
 
 function routeEvents(route)

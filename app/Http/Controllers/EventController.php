@@ -16,16 +16,8 @@ class EventController extends Controller
 
     public function store(EventRequest $request)
     {
-        // Event::create($request->all());
-        // return response()->json(true);
-        // return redirect('/clientes')->with(['tipo'=>'success', 'mensagem'=>'Registro criado com sucesso!']);
-        // return redirect()->back()->withErrors(['tipo'=>'danger', 'mensagem'=>'Erro ao realizar operação.']);
-        // return response()->json([
-        //     'success' => false,
-        //     'message' => 'Todos os campos precisam ser preenchidos.',
-        // ]);
-
         $event = Event::create($request->all());
+
         if ($event) {
             return response()->json([
                 'success' => true,
@@ -40,13 +32,26 @@ class EventController extends Controller
         $event = Event::where('id', $request->id)->first();
         $event->fill($request->all());
         $event->save();
-        // return response()->json(true);
+
         if ($event) {
             return response()->json([
                 'success' => true,
                 'message' => 'Registro atualizado com sucesso!',
                 'data' => $event,
             ]);
+        } else {
+            return response()->json([
+                'success' => false,
+                'message' => 'Falha ao atualizar o registro!',
+                'data' => $event,
+            ]);
         }
+    }
+
+    public function destroy(Request $request)
+    {
+        Event::where('id', $request->id)->delete();
+
+        return response()->json(true);
     }
 }

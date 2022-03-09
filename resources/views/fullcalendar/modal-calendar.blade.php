@@ -6,7 +6,9 @@
           <h5 class="modal-title" id="titleModal">Modal title</h5>
         </div>
         <div class="modal-body">
-            @include('includes.alerts')
+
+            <div id="mensagem"></div>
+
             <form id="formEvent">
                 <div class="form-group">
                     <label for="title">Title</label>

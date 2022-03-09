@@ -25,10 +25,7 @@
 
       <div id='external-events-list'>
         <div class='fc-event'>My Event 1</div>
-        <div class='fc-event'>My Event 2</div>
-        <div class='fc-event'>My Event 3</div>
-        <div class='fc-event'>My Event 4</div>
-        <div class='fc-event'>My Event 5</div>
+
       </div>
 
       <p>
@@ -42,6 +39,7 @@
         data-route-load-events={{ route('routeLoadEvents') }}
         data-route-event-update={{ route('routeEventUpdate') }}
         data-route-event-store={{ route('routeEventStore') }}
+        data-route-event-delete={{ route('routeEventDelete') }}
     ></div>
 
     <div style='clear:both'></div>
