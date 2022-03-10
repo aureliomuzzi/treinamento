@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\FullcalendarController;
+use App\Models\FastEvent;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,9 +16,13 @@ use App\Http\Controllers\EventController;
 |
 */
 
+
+
 Route::get('/', function () {
-    return view('fullcalendar.master');
+    return redirect('/fullcalendar');
 });
+
+Route::get('/fullcalendar', [FullcalendarController::class, 'index'])->name('index');
 
 Route::get('/load-events', [EventController::class, 'loadEvents'])->name('routeLoadEvents');
 

@@ -22,12 +22,13 @@
 
     <div id='external-events'>
       <h4>Draggable Events</h4>
+        <div id='external-events-list'>
 
-      <div id='external-events-list'>
-        <div class='fc-event'>My Event 1</div>
+            @if ($fastEvents)
 
-      </div>
+            @endif
 
+        </div>
       <p>
         <input type='checkbox' id='drop-remove' />
         <label for='drop-remove'>remove after drop</label>
