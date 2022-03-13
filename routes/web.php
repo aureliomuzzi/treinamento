@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\FullcalendarController;
-use App\Models\FastEvent;
+use App\Http\Controllers\FastEventController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,3 +31,11 @@ Route::put('/event-update', [EventController::class, 'update'])->name('routeEven
 Route::post('/event-store', [EventController::class, 'store'])->name('routeEventStore');
 
 Route::delete('/event-destroy', [EventController::class, 'destroy'])->name('routeEventDelete');
+
+/* Rotas para Eventos Rápidos */
+
+Route::delete('/fast-event-destroy', [FastEventController::class, 'destroy'])->name('routeFastEventDelete');
+
+Route::put('/fast-event-update', [FastEventController::class, 'update'])->name('routeFastEventUpdate');
+
+Route::post('/fast-event-store', [FastEventController::class, 'store'])->name('routeFastEventStore');

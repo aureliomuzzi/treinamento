@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class EventRequest extends FormRequest
+class FastEventRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,8 +25,8 @@ class EventRequest extends FormRequest
     {
         return [
             'title' => 'required|min:3',
-            'start' => 'date_format:Y-m-d H:i:s|before:end',
-            'end' => 'date_format:Y-m-d H:i:s|after:start',
+            'start' => 'date_format:H:i:s|before:end',
+            'end' => 'date_format:H:i:s|after:start',
         ];
     }
 
@@ -35,10 +35,11 @@ class EventRequest extends FormRequest
         return [
             'title.required' => 'Campo Titulo é Obrigatório.',
             'title.min' => 'Campo Titulo precisa de pelo menos 3 caracteres.',
-            'start.date_format' => 'Preencha uma Data Inicial válida.',
-            'start.before' => 'A Data/Hora Incial deve ser menor que a Data/Hora Final.',
-            'end.date_format' => 'Preencha uma Data Final válida.',
-            'end.after' => 'A Data/Hora Final deve ser maior que a Data/Hora Inicial.',
+            'start.date_format' => 'Preencha a Hora Inicial válida.',
+            'start.before' => 'A Hora Incial deve ser menor que a Hora Final.',
+            'end.date_format' => 'Preencha uma Hora Final válida.',
+            'end.after' => 'A Hora Final deve ser maior que a Hora Inicial.',
         ];
     }
+
 }

@@ -25,7 +25,7 @@ class EventTableSeeder extends Seeder
             [
                 'title' => 'Ligar para Cliente',
                 'start' => '2022-03-27',
-                'end' => '2022-03-27',
+                'end' => '2022-03-28',
                 'color' => '#29FDF2',
                 'description' => 'Fala com cliente sobre o sistema NeoPiing'
             ],

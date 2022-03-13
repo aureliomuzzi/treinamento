@@ -50,10 +50,13 @@ document.addEventListener('DOMContentLoaded', function() {
       droppable: true,
 
       drop: function(element) {
+
         let Event = JSON.parse(element.draggedEl.dataset.event);
 
         if (document.getElementById('drop-remove').checked) {
             element.draggedEl.parentNode.removeChild(element.draggedEl);
+            Event._method = "DELETE";
+            sendEvent(routeEvents('routeFastEventDelete'), Event);
         }
 
         let start = moment(`${element.dateStr} ${Event.start}`).format("YYYY-MM-DD HH:mm:ss");
@@ -63,6 +66,7 @@ document.addEventListener('DOMContentLoaded', function() {
         Event.end = end;
 
         delete Event.id;
+        delete Event._method;
 
         sendEvent(routeEvents('routeEventStore'), Event);
       },
@@ -84,7 +88,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
       eventClick: function(element) {
 
-        clearMessages('#mensagem');
+        clearMessages(".mensagem");
         resetForm('#formEvent');
 
         $('#modalCalendar').modal('show');
@@ -116,7 +120,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
       select: function(element) {
 
-        clearMessages('#mensagem');
+        clearMessages(".mensagem");
         resetForm('#formEvent');
 
         $('#modalCalendar').modal('show');
@@ -128,9 +132,15 @@ document.addEventListener('DOMContentLoaded', function() {
         $("#modalCalendar input[name='color']").val('#3788D8');
       },
 
+      eventReceive: function (element) {
+        element.event.remove();
+      },
+
       events: routeEvents('routeLoadEvents'),
 
     });
+
+    objCalendar = calendar;
     calendar.render();
 
   });

@@ -8,9 +8,15 @@ use App\Models\Event;
 
 class EventController extends Controller
 {
-    public function loadEvents()
+    public function loadEvents(Request $request)
     {
-        $events = Event::all();
+        $returnedColumns = ['id', 'title', 'start', 'end', 'color', 'description'];
+
+        $start = (!empty($request->start)) ? ($request->start) : ('');
+        $end = (!empty($request->end)) ? ($request->end) : ('');
+
+        $events = Event::whereBetween('start', [$start, $end])->get($returnedColumns);
+
         return response()->json($events);
     }
 
