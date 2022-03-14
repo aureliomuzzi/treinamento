@@ -30,9 +30,9 @@
               </form>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary closeModal">Fechar</button>
-          <button type="button" class="btn btn-danger deleteFastEvent">Excluir</button>
-          <button type="button" class="btn btn-primary saveFastEvent">Salvar</button>
+          <button type="button" class="btn btn-secondary closeFastModal">Fechar</button>
+          <button type="button" class="btn btn-danger deleteFastEvent" id="deleteFastEvent">Excluir</button>
+          <button type="button" class="btn btn-primary saveFastEvent" id="saveFastEvent">Salvar</button>
         </div>
       </div>
     </div>

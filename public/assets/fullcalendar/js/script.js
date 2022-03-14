@@ -31,6 +31,25 @@ $(function () {
 
     });
 
+    $('.deleteFastEvent').click(function () {
+        let id = $("#modalFastEvent input[name='id']").val();
+        $("#modalFastEvent input[name='title']").prop('disabled', true);
+        $("#modalFastEvent input[name='start']").prop('disabled', true);
+        $("#modalFastEvent input[name='end']").prop('disabled', true);
+        $("#modalFastEvent input[name='color']").prop('disabled', true);
+        $(".saveFastEvent").prop('disabled', true);
+
+        let Event = {
+            id: id,
+            _method: 'DELETE'
+        };
+
+        let route = routeEvents('routeFastEventDelete')
+
+        sendEvent(route, Event);
+
+    });
+
     $('.fc-event').click(function () {
         clearMessages('.mensagem');
         resetForm('#formFastEvent');
@@ -78,8 +97,12 @@ $(function () {
 
     $('.closeModal').click(function () {
         $('#modalCalendar').modal('hide');
-        $('#modalFastEvent').modal('hide');
         objCalendar.refetchEvents();
+    });
+
+    $('.closeFastModal').click(function () {
+        $('#modalFastEvent').modal('hide');
+        location.reload();
     });
 
     $('.saveEvent').click(function () {

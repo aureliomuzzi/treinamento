@@ -44,8 +44,21 @@ class FastEventController extends Controller
 
     public function destroy(Request $request)
     {
-        FastEvent::where('id', $request->id)->delete();
+        $event = FastEvent::where('id', $request->id)->delete();
 
-        return response()->json(true);
+        if ($event) {
+            return response()->json([
+                'success' => true,
+                'message' => 'Registro deletado com sucesso!',
+                'data' => $event,
+            ]);
+        } else {
+            return response()->json([
+                'success' => false,
+                'message' => 'Esse registro já foi excluído!',
+                'data' => $event,
+            ]);
+        }
+        //return response()->json(true);
     }
 }
