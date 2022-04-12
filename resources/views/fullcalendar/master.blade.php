@@ -41,7 +41,7 @@
       <p>
         <input type='checkbox' id='drop-remove' />
         <label for='drop-remove'>Remover item</label>
-        <button class="btn btn-sm btn-success" id="newFastEvent">Criar Novo Evento</button>
+        <button class="btn btn-sm btn-info" id="newFastEvent">Criar Novo Evento</button>
       </p>
     </div>
 
